@@ -19,18 +19,18 @@ int getEdad(int* pEdad){
 
 
     for(reintentos=3; reintentos>0; reintentos--){
-
         printf("\nEdad?");
         if(scanf("%d",&auxiliarEdad)==1){
-        if(auxiliarEdad >= 0 && auxiliarEdad < 199){
+            if(auxiliarEdad >= 0 && auxiliarEdad < 199){
             *pEdad=auxiliarEdad;
             retorno=0;
             break;
-        }else{
+                }
+            }else{
             printf("La edad es numerica, debe ser mayor a 0 y menor a 199");
             __fpurge(stdin);
-        }
-        }
+            }
+
 
     }
 
