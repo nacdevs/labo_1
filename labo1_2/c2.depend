@@ -4,8 +4,17 @@
 	<stdio_ext.h>
 	<stdlib.h>
 
-1535671589 source:/home/alumno/Nestor/labo_1/labo1_2/main.c
+1535677652 source:/home/alumno/Nestor/labo_1/labo1_2/main.c
 	<stdio.h>
 	<stdio_ext.h>
 	<stdlib.h>
+	"utn.h"
+
+1535677668 /home/alumno/Nestor/labo_1/labo1_2/utn.h
+
+1535678789 source:/home/alumno/Nestor/labo_1/labo1_2/utn.c
+	<stdio.h>
+	<stdio_ext.h>
+	<stdlib.h>
+	"utn.h"
 

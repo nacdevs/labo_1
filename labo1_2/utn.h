@@ -12,6 +12,7 @@
 
 
 int utn_getEntero(int* pEdad, int reintentos, char* msg, char* msgErr, int min, int max);
+char utn_getNombre(char* pNombre, int reintentos);
 
 
 #endif // UTN_H_INCLUDED

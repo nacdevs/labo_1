@@ -7,11 +7,12 @@ int getEdad();
 int main()
 {
     int edad;
+    char nombre;
     /*if(getEdad(&edad)==0){
         printf("La edad es %d",edad);
     }*/
 
-    if(utn_getEntero(&edad,3, "Edad?", "Error",0,199)){
+    if(utn_getEntero(&edad,3, "Edad?", "Error",0,199)&& utn_getNombre(&nombre,3)){
         printf("La edad es %d",edad);
     }
     return 0;
