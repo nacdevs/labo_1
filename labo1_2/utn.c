@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <stdio_ext.h>
+//#include <stdio_ext.h>
 #include <stdlib.h>
 #include "utn.h"
 static int getInt(int* pResultado);
-static int getChar(char* pNombre);
+static int getChar(char* pChars);
 
 int utn_getEntero(int* pEdad, int reintentos, char* msg, char* msgErr, int min, int max){
 
@@ -11,19 +11,21 @@ int utn_getEntero(int* pEdad, int reintentos, char* msg, char* msgErr, int min, 
     int auxiliarEdad;
 
     for(reintentos; reintentos>0; reintentos--){
-        printf("\nEdad?");
+        printf("\nEdad?:");
         if(getInt(&auxiliarEdad)==0){                      //scanf("%d",&auxiliarEdad)==1){
-            if(auxiliarEdad >= min && auxiliarEdad < max){
-            *pEdad=auxiliarEdad;
-            retorno=0;
-            break;
+                if(auxiliarEdad >= min && auxiliarEdad < max){
+                *pEdad=auxiliarEdad;
+                retorno=0;
+                break;
+                }
             }else{
            printf(msgErr);
-            __fpurge(stdin);//flush en windows
+            //__fpurge(stdin);//flush en windows
+            fflush(stdin);
             }
 
         }
-    }
+
 
     return retorno;
 
@@ -32,18 +34,19 @@ int utn_getEntero(int* pEdad, int reintentos, char* msg, char* msgErr, int min, 
 
 char utn_getNombre(char* pNombre, int reintentos){
     int retorno;
-    char nombre;
+    int nombre;
 
 
     for(reintentos; reintentos >0 ; reintentos--){
         printf("Ingrese nombre:\n");
         if(getChar(&nombre)==0){
-            pNombre=nombre;
+            *pNombre=nombre;
             retorno=0;
             break;
         }else{
-        printf("Nombre Incorrecto");
-        __fpurge(stdin);
+            printf("Nombre Incorrecto\n");
+            //__fpurge(stdin);
+            fflush(stdin);
         }
     }
 
@@ -53,8 +56,7 @@ char utn_getNombre(char* pNombre, int reintentos){
 
 static int getChar(char* pChars){
         int retorno;
-
-        if(scanf("%c",pChars)<10){
+        if(scanf("%20s",pChars)==1){
             retorno=0;
         }else{
             retorno=-1;
@@ -64,8 +66,8 @@ static int getChar(char* pChars){
 
 
  static int getInt(int* pResultado){
-    int retornoGetInt=-1;
-    if(scanf("%d", pResultado)==0){
+    int retornoGetInt;
+    if(scanf("%d", pResultado)==1){
         retornoGetInt=0;
     }else{
         retornoGetInt=-1;

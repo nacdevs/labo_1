@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdio_ext.h>
+//#include <stdio_ext.h>
 #include <stdlib.h>
 #include "utn.h"
 int getEdad();
@@ -7,13 +7,16 @@ int getEdad();
 int main()
 {
     int edad;
-    char nombre;
+    char nombre[20]={'\0'};
     /*if(getEdad(&edad)==0){
         printf("La edad es %d",edad);
     }*/
 
-    if(utn_getEntero(&edad,3, "Edad?", "Error",0,199)&& utn_getNombre(&nombre,3)){
+    if((utn_getEntero(&edad,3, "Edad?", "Error",0,199)==0) && (utn_getNombre(&nombre,3)==0)){
         printf("La edad es %d",edad);
+        printf("\nEl nombre es %s",nombre);
+        printf(&nombre+1);
+        printf(&nombre+2);
     }
     return 0;
 }
